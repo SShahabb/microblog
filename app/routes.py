@@ -1,18 +1,11 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-<<<<<<< HEAD
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
-=======
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
->>>>>>> fc05fb8acad37156cb62ac080f9d2f47ef32364f
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Post
 from werkzeug.urls import url_parse
 from datetime import datetime
-<<<<<<< HEAD
 from app.email import send_password_reset_email
-=======
->>>>>>> fc05fb8acad37156cb62ac080f9d2f47ef32364f
 
 @app.before_request
 def before_request():
@@ -147,7 +140,6 @@ def explore():
     prev_url = url_for('explore', page=posts.prev_num) \
         if posts.has_prev else None
     return render_template("index.html", title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
-<<<<<<< HEAD
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
@@ -177,5 +169,3 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
-=======
->>>>>>> fc05fb8acad37156cb62ac080f9d2f47ef32364f
